@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hero visual asset layout measurement prototype">
+  <title>Hero Asset Layout Measurement</title>
+  <style>
+    :root {
+      --header-h: 72px;
+      --ink: #202522;
+      --muted: #626b66;
+      --paper: #f7f1e7;
+      --grid: rgba(35, 37, 42, 0.08);
+      --safe: rgba(20, 104, 86, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+    body {
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    .measure-header {
+      height: var(--header-h);
+      padding: 0 clamp(20px, 5vw, 80px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(35, 37, 42, 0.22);
+      background: rgba(247, 241, 231, 0.96);
+    }
+    .measure-header strong { font-size: 14px; }
+    .viewport-readout { color: var(--muted); font: 12px/1.4 Consolas, monospace; }
+
+    .hero-stage {
+      position: relative;
+      width: 100%;
+      height: calc(100svh - var(--header-h));
+      min-height: 0;
+      overflow: clip;
+      isolation: isolate;
+      background-color: #f7f1e7;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    .stage-badge {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      z-index: 50;
+      padding: 5px 8px;
+      border: 1px solid rgba(35, 37, 42, 0.35);
+      background: rgba(255, 255, 255, 0.88);
+      font: 10px/1.3 Consolas, monospace;
+    }
+
+    .layer {
+      position: absolute;
+      display: grid;
+      place-items: start;
+      border: 1px dashed var(--layer-border);
+      background: var(--layer-fill);
+      color: #151817;
+      pointer-events: none;
+    }
+    .layer::after {
+      content: "";
+      position: absolute;
+      inset: var(--safe-inset, 8%);
+      border: 1px solid rgba(23, 25, 24, 0.3);
+    }
+    .layer-info {
+      position: relative;
+      z-index: 2;
+      max-width: min(100%, 220px);
+      margin: 4px;
+      padding: 3px 5px;
+      background: rgba(255, 255, 255, 0.82);
+      font: 9px/1.28 Consolas, "Microsoft YaHei", sans-serif;
+      overflow-wrap: anywhere;
+    }
+    .layer-info strong { display: block; font-size: 10px; }
+
+    .title-zone { --layer-fill: rgba(40, 139, 110, 0.18); --layer-border: #146f5b; --safe-inset: 4%; left: 5.55%; top: 9.2%; width: 37.5%; height: 39.9%; z-index: 30; }
+    .cloud-far { --layer-fill: rgba(96, 167, 202, 0.12); --layer-border: #4e94b7; --safe-inset: 10% 10% 12%; left: -80px; top: 2%; width: calc(100% + 160px); aspect-ratio: 4 / 1; z-index: 1; }
+    .cloud-mid { --layer-fill: rgba(92, 130, 191, 0.13); --layer-border: #536fa8; --safe-inset: 8%; left: -60px; top: 25%; width: calc(100% + 120px); aspect-ratio: 4.5 / 1; z-index: 2; }
+    .cloud-far .layer-info { left: 90px; }
+    .cloud-mid .layer-info { left: 70px; }
+    .island-left { --layer-fill: rgba(190, 155, 70, 0.2); --layer-border: #9c7c29; --safe-inset: 10%; left: 0; top: 60%; width: 25%; aspect-ratio: 9 / 7; z-index: 4; }
+    .island-right { --layer-fill: rgba(206, 132, 86, 0.19); --layer-border: #a45b30; --safe-inset: 8%; right: 0; top: 54%; width: 24%; aspect-ratio: 25 / 19; z-index: 4; }
+    .island-center { --layer-fill: rgba(125, 151, 74, 0.23); --layer-border: #657d35; --safe-inset: 10% 8% 6%; left: 31%; top: 56.5%; width: 45%; aspect-ratio: 16 / 9; z-index: 5; }
+    .building-left { --layer-fill: rgba(153, 101, 173, 0.2); --layer-border: #7a4f8d; --safe-inset: 10%; left: 0; top: 50%; width: 16.67%; aspect-ratio: 1 / 1; z-index: 6; }
+    .building-right { --layer-fill: rgba(197, 89, 117, 0.18); --layer-border: #a34760; --safe-inset: 8%; right: 1%; top: 46%; width: 20%; aspect-ratio: 32 / 27; z-index: 6; }
+    .paths { --layer-fill: rgba(218, 173, 75, 0.13); --layer-border: #b38725; --safe-inset: 6%; left: 8.33%; bottom: 4%; width: 83.33%; aspect-ratio: 20 / 9; z-index: 7; }
+    .waterfall { --layer-fill: rgba(59, 162, 208, 0.26); --layer-border: #277ca3; --safe-inset: 12%; right: 17%; top: 66%; width: 6.25%; aspect-ratio: 1 / 2; z-index: 8; }
+    .plants { --layer-fill: rgba(74, 148, 88, 0.16); --layer-border: #347342; --safe-inset: 8%; left: 8.33%; bottom: 3%; width: 83.33%; aspect-ratio: 40 / 13; z-index: 9; }
+    .person { --layer-fill: rgba(51, 106, 188, 0.2); --layer-border: #2b5799; --safe-inset: 3%; left: 47.22%; top: 15.5%; width: 19.44%; aspect-ratio: 2 / 3; z-index: 10; }
+    .sparkles { --layer-fill: rgba(245, 199, 58, 0.13); --layer-border: #ae8621; --safe-inset: 15%; left: 52%; top: 15%; width: 36%; height: 38%; z-index: 11; }
+    .cloud-front { --layer-fill: rgba(117, 201, 207, 0.13); --layer-border: #42979c; --safe-inset: 6%; left: -60px; bottom: 1%; width: calc(100% + 120px); height: 18%; z-index: 12; }
+    .cloud-front .layer-info { left: 70px; }
+    .project-bridge { --layer-fill: rgba(220, 114, 76, 0.15); --layer-border: #b65333; --safe-inset: 5%; left: 0; bottom: 0; width: 100%; height: 14%; z-index: 13; }
+
+    .waterfall .layer-info { font-size: 7px; }
+    .waterfall .layer-info strong { font-size: 8px; }
+
+    @media (max-width: 1199px) {
+      :root { --header-h: 64px; }
+      .measure-header { padding-inline: 40px; }
+      .title-zone { left: 3.9%; top: 6.8%; width: 42%; height: 39.8%; }
+      .person { left: 50.8%; top: 13.6%; width: 20.5%; }
+      .island-center { left: 28%; top: 53.7%; width: 49%; }
+      .island-left { top: 59.7%; width: 25.4%; }
+      .island-right { top: 54.3%; width: 23%; }
+      .building-left { top: 51%; width: 18%; }
+      .building-right { top: 47%; right: 1%; width: 21%; }
+      .paths, .plants { left: 4%; width: 92%; }
+    }
+
+    @media (max-width: 899px) {
+      .measure-header { padding-inline: 32px; }
+      .title-zone { left: 4.16%; top: 5%; width: 50.8%; height: 30.2%; }
+      .person { left: 58.85%; top: 13.5%; width: 28.65%; }
+      .island-center { left: 39.84%; top: 46.25%; width: 55.99%; }
+      .island-left { top: 58.3%; width: 27.08%; }
+      .island-right, .building-right, .waterfall { display: none; }
+      .building-left { top: 52%; width: 22%; }
+      .paths, .plants { left: 18%; width: 78%; }
+      .cloud-front { height: 14%; }
+    }
+
+    @media (max-width: 767px) {
+      :root { --header-h: 56px; }
+      .measure-header { padding-inline: 20px; }
+      .measure-header strong { font-size: 12px; }
+      .viewport-readout { font-size: 10px; }
+      .hero-stage { background-size: 20px 20px; }
+      .stage-badge { top: 6px; right: 6px; }
+      .title-zone { left: 20px; top: 3%; width: calc(100% - 40px); height: 27%; }
+      .cloud-far { left: -125px; top: 1%; width: 640px; height: 160px; }
+      .cloud-mid { left: -72px; top: 27%; width: 540px; height: 120px; }
+      .cloud-far .layer-info { left: 135px; }
+      .cloud-mid .layer-info { left: 82px; }
+      .person { left: 50%; top: 30%; width: clamp(144px, 38.5vw, 150px); transform: translateX(-50%); }
+      .island-center { left: 50%; top: 55.8%; width: calc(100% - 50px); transform: translateX(-50%); }
+      .island-left, .island-right, .building-left, .building-right, .waterfall { display: none; }
+      .paths { left: 50%; bottom: 13%; width: calc(100% - 50px); transform: translateX(-50%); }
+      .plants { left: 50%; bottom: 13%; width: calc(100% - 50px); transform: translateX(-50%); }
+      .sparkles { left: 54%; top: 34%; width: 40%; height: 25%; }
+      .cloud-front { left: -80px; width: calc(100% + 160px); height: 11%; }
+      .cloud-front .layer-info { left: 90px; }
+      .project-bridge { height: 10%; }
+      .layer-info { font-size: 7px; line-height: 1.22; }
+      .layer-info strong { font-size: 8px; }
+    }
+
+    @media (max-width: 380px) {
+      .title-zone { top: 2.6%; height: 26.7%; }
+      .person { top: 29.8%; }
+      .island-center { top: 55.3%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="measure-header">
+    <strong>Hero 素材尺寸测量原型</strong>
+    <span class="viewport-readout" id="viewportReadout">viewport</span>
+  </header>
+
+  <main class="hero-stage" id="heroStage">
+    <div class="stage-badge" id="stageBadge">stage</div>
+    <div class="layer cloud-far" data-name="远景云层" data-anchor="top center" data-z="1"></div>
+    <div class="layer cloud-mid" data-name="中景云层" data-anchor="center" data-z="2"></div>
+    <div class="layer island-left" data-name="左环境岛" data-anchor="bottom left" data-z="4"></div>
+    <div class="layer island-right" data-name="右环境岛" data-anchor="bottom right" data-z="4"></div>
+    <div class="layer island-center" data-name="中央人物浮岛" data-anchor="bottom center" data-z="5"></div>
+    <div class="layer building-left" data-name="左侧遗迹建筑" data-anchor="bottom center" data-z="6"></div>
+    <div class="layer building-right" data-name="右侧建筑与电脑台" data-anchor="bottom center" data-z="6"></div>
+    <div class="layer paths" data-name="道路与台阶" data-anchor="bottom center" data-z="7"></div>
+    <div class="layer waterfall" data-name="瀑布" data-anchor="top center" data-z="8"></div>
+    <div class="layer plants" data-name="植物" data-anchor="bottom center" data-z="9"></div>
+    <div class="layer person" data-name="人物" data-anchor="bottom center" data-z="10"></div>
+    <div class="layer sparkles" data-name="像素光点" data-anchor="center" data-z="11"></div>
+    <div class="layer cloud-front" data-name="前景云层" data-anchor="bottom center" data-z="12"></div>
+    <div class="layer project-bridge" data-name="项目区衔接层" data-anchor="bottom center" data-z="13"></div>
+    <div class="layer title-zone" data-name="标题安全区域" data-anchor="top left" data-z="30"></div>
+  </main>
+
+  <script>
+    const stage = document.getElementById("heroStage");
+    const viewportReadout = document.getElementById("viewportReadout");
+    const stageBadge = document.getElementById("stageBadge");
+
+    function updateMeasurements() {
+      viewportReadout.textContent = `${window.innerWidth} × ${window.innerHeight}`;
+      stageBadge.textContent = `Hero ${Math.round(stage.getBoundingClientRect().width)} × ${Math.round(stage.getBoundingClientRect().height)}`;
+
+      document.querySelectorAll(".layer").forEach((layer) => {
+        const rect = layer.getBoundingClientRect();
+        const visible = getComputedStyle(layer).display !== "none";
+        let info = layer.querySelector(".layer-info");
+        if (!info) {
+          info = document.createElement("span");
+          info.className = "layer-info";
+          layer.appendChild(info);
+        }
+        info.innerHTML = `<strong>${layer.dataset.name}</strong>${visible ? `${Math.round(rect.width)}×${Math.round(rect.height)}px` : "隐藏"}<br>anchor: ${layer.dataset.anchor}<br>layer: ${layer.dataset.z}`;
+      });
+    }
+
+    new ResizeObserver(updateMeasurements).observe(stage);
+    window.addEventListener("resize", updateMeasurements);
+    updateMeasurements();
+  </script>
+</body>
+</html>

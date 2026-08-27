@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>P0-A 三座浮岛素材检查</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      color: #25241f;
+      background: #ecebe5;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 56px;
+      padding: 12px 24px;
+      border-bottom: 1px solid #cbc9c0;
+      background: rgba(250, 249, 244, 0.96);
+    }
+    header h1 { margin: 0; font-size: 16px; }
+    header p { margin: 0; color: #66645d; font-size: 12px; }
+    main { width: min(1488px, 100%); margin: 0 auto; padding: 28px 24px 56px; }
+    section + section { margin-top: 40px; }
+    h2 { margin: 0 0 8px; font-size: 20px; }
+    .section-note { margin: 0 0 18px; color: #66645d; font-size: 13px; }
+    .asset { padding: 20px 0 28px; border-top: 1px solid #cbc9c0; }
+    .asset:first-of-type { border-top: 0; }
+    .asset-head { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+    .asset-head h3 { margin: 0; font-size: 16px; }
+    .asset-meta { color: #66645d; font: 12px Consolas, monospace; }
+    .background-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .inspection-panel {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 310px;
+      overflow: hidden;
+      border: 1px solid rgba(37, 36, 31, 0.18);
+    }
+    .inspection-panel img { display: block; width: 92%; height: 286px; object-fit: contain; }
+    .panel-label {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      padding: 4px 6px;
+      background: rgba(255, 255, 255, 0.88);
+      color: #25241f;
+      font-size: 11px;
+    }
+    .bg-light { background: #faf7ef; }
+    .bg-dark { background: #242832; }
+    .bg-checker {
+      background-color: #fff;
+      background-image:
+        linear-gradient(45deg, #d7d7d7 25%, transparent 25%),
+        linear-gradient(-45deg, #d7d7d7 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #d7d7d7 75%),
+        linear-gradient(-45deg, transparent 75%, #d7d7d7 75%);
+      background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+      background-size: 24px 24px;
+    }
+    .hero-shell { overflow-x: auto; border: 1px solid #bbb8ad; background: #d8d6cf; }
+    .hero-canvas {
+      position: relative;
+      width: 1440px;
+      height: 900px;
+      overflow: hidden;
+      background: #faf5ea;
+      background-image: linear-gradient(rgba(37, 36, 31, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 36, 31, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .hero-canvas::before {
+      content: "1440 × 900 组合检查｜只显示三座岛与独立人物母版";
+      position: absolute;
+      top: 16px;
+      left: 24px;
+      z-index: 10;
+      padding: 6px 8px;
+      border: 1px solid #a7a398;
+      background: rgba(255, 255, 255, 0.85);
+      font: 12px Consolas, monospace;
+    }
+    .hero-asset { position: absolute; display: block; object-fit: contain; }
+    .island-left { left: 0; top: 55%; width: 360px; height: 280px; z-index: 4; }
+    .island-right { right: 0; top: 50%; width: 400px; height: 304px; z-index: 4; }
+    .island-center { left: 31%; top: 52%; width: 640px; height: 360px; z-index: 5; }
+    .avatar { left: 47.22%; top: 14%; width: 280px; height: 420px; z-index: 10; }
+    .anchor {
+      position: absolute;
+      z-index: 12;
+      width: 10px;
+      height: 10px;
+      margin: -5px;
+      border: 2px solid #151515;
+      border-radius: 50%;
+      background: #fff;
+    }
+    .anchor-left { left: 0; top: calc(55% + 280px); }
+    .anchor-center { left: calc(31% + 320px); top: calc(52% + 360px); }
+    .anchor-right { right: 0; top: calc(50% + 304px); }
+    .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: 12px; color: #66645d; }
+    @media (max-width: 760px) {
+      header { align-items: flex-start; flex-direction: column; }
+      main { padding-inline: 16px; }
+      .background-grid { grid-template-columns: 1fr; }
+      .inspection-panel { min-height: 260px; }
+      .inspection-panel img { height: 238px; }
+      .asset-head { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>P0-A 三座浮岛素材检查</h1>
+    <p>独立透明 PNG｜非正式页面｜无正式动效</p>
+  </header>
+  <main>
+    <section>
+      <h2>单图透明边缘</h2>
+      <p class="section-note">同一文件分别放在浅色、深色和棋盘格背景上，检查透明区、边缘残色与主体完整性。</p>
+
+      <article class="asset" data-file="hero-island-center.png">
+        <div class="asset-head"><h3>中央人物浮岛</h3><span class="asset-meta">读取中</span></div>
+        <div class="background-grid"></div>
+      </article>
+      <article class="asset" data-file="hero-island-left.png">
+        <div class="asset-head"><h3>左环境岛</h3><span class="asset-meta">读取中</span></div>
+        <div class="background-grid"></div>
+      </article>
+      <article class="asset" data-file="hero-island-right.png">
+        <div class="asset-head"><h3>右环境岛</h3><span class="asset-meta">读取中</span></div>
+        <div class="background-grid"></div>
+      </article>
+    </section>
+
+    <section>
+      <h2>1440×900 Hero 组合检查</h2>
+      <p class="section-note">人物通过独立文件引用，仅用于核对站立关系和构图，不会合并进浮岛图片。</p>
+      <div class="hero-shell">
+        <div class="hero-canvas">
+          <img class="hero-asset island-left" src="../public/portfolio/environment/home/hero-island-left.png" alt="左环境岛">
+          <img class="hero-asset island-right" src="../public/portfolio/environment/home/hero-island-right.png" alt="右环境岛">
+          <img class="hero-asset island-center" src="../public/portfolio/environment/home/hero-island-center.png" alt="中央人物浮岛">
+          <img class="hero-asset avatar" src="../public/portfolio/avatar/avatar-master.png" alt="独立人物母版">
+          <span class="anchor anchor-left" title="bottom left"></span>
+          <span class="anchor anchor-center" title="bottom center"></span>
+          <span class="anchor anchor-right" title="bottom right"></span>
+        </div>
+      </div>
+      <div class="legend">
+        <span>左岛：bottom left / z 4</span>
+        <span>右岛：bottom right / z 4</span>
+        <span>中央岛：bottom center / z 5</span>
+        <span>人物：独立图层 / z 10</span>
+      </div>
+    </section>
+  </main>
+  <script>
+    const base = "../public/portfolio/environment/home/";
+    const backgrounds = [
+      ["bg-light", "浅色背景"],
+      ["bg-dark", "深色背景"],
+      ["bg-checker", "棋盘格背景"],
+    ];
+
+    document.querySelectorAll(".asset").forEach((asset) => {
+      const file = asset.dataset.file;
+      const grid = asset.querySelector(".background-grid");
+      backgrounds.forEach(([className, label]) => {
+        const panel = document.createElement("div");
+        panel.className = `inspection-panel ${className}`;
+        panel.innerHTML = `<span class="panel-label">${label}</span><img src="${base}${file}" alt="${file} 在${label}上的透明检查">`;
+        grid.appendChild(panel);
+      });
+      const probe = new Image();
+      probe.onload = () => {
+        asset.querySelector(".asset-meta").textContent = `${file}｜${probe.naturalWidth} × ${probe.naturalHeight}｜PNG`;
+      };
+      probe.onerror = () => {
+        asset.querySelector(".asset-meta").textContent = `${file}｜加载失败`;
+      };
+      probe.src = `${base}${file}`;
+    });
+  </script>
+</body>
+</html>

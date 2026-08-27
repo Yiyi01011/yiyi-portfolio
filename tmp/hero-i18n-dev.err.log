@@ -1,0 +1,1241 @@
+⨯ SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>) {
+  page: '/zh'
+}
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh#projects" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                            <div className="projects-c..." data-index={0}>
+                              <article className="project-card" tabIndex={0} aria-label="DesignSpar...">
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fdesignspark%2Fcover.png&w=256..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fdesignspark%2Fcover.png&w=3840&q=75"}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="b2068e21e7ed58aecc428341cb21bcc4"
+                                  >
+                                ...
+                              <article className="project-card" tabIndex={0} aria-label="AI 销售 Agen...">
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fai-sales-agent%2Fcover.png&w=..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fai-sales-agent%2Fcover.png&w=384..."}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="67e6a0760084f6ca566f074b321c844e"
+                                  >
+                                ...
+                              <article className="project-card" tabIndex={0} aria-label="交换人生: AI 情...">
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Flife-exchange%2Fcover.png&w=2..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Flife-exchange%2Fcover.png&w=3840..."}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="61c7ce39d2e53d98604cda0578cfe231"
+                                  >
+                                ...
+                              <article className="project-card" tabIndex={0} aria-label="AI Coding ...">
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fvibe-coding%2Fcover.png&w=256..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fvibe-coding%2Fcover.png&w=3840&q=75"}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="87a77c57f6deee89f86a531a3bc27af9"
+                                  >
+                                ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh#about" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                            <div className="projects-c..." data-index={0}>
+                              <article className="project-card" tabIndex={0} aria-label="DesignSpar...">
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fdesignspark%2Fcover.png&w=256..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fdesignspark%2Fcover.png&w=3840&q=75"}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="b2068e21e7ed58aecc428341cb21bcc4"
+                                  >
+                                ...
+                              <article className="project-card" tabIndex={0} aria-label="AI 销售 Agen...">
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fai-sales-agent%2Fcover.png&w=..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fai-sales-agent%2Fcover.png&w=384..."}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="67e6a0760084f6ca566f074b321c844e"
+                                  >
+                                ...
+                              <article className="project-card" tabIndex={0} aria-label="交换人生: AI 情...">
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Flife-exchange%2Fcover.png&w=2..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Flife-exchange%2Fcover.png&w=3840..."}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="61c7ce39d2e53d98604cda0578cfe231"
+                                  >
+                                ...
+                              <article className="project-card" tabIndex={0} aria-label="AI Coding ...">
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fvibe-coding%2Fcover.png&w=256..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fvibe-coding%2Fcover.png&w=3840&q=75"}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="87a77c57f6deee89f86a531a3bc27af9"
+                                  >
+                                ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh#projects" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                            <div className="projects-c..." data-index={0}>
+                              <button className="project-card" type="button" aria-label="DesignSpar..." ...>
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fdesignspark%2Fcover.png&w=256..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fdesignspark%2Fcover.png&w=3840&q=75"}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="b2068e21e7ed58aecc428341cb21bcc4"
+                                  >
+                                ...
+                              <button className="project-card" type="button" aria-label="交换人生: AI 情..." ...>
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Flife-exchange%2Fcover.png&w=2..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Flife-exchange%2Fcover.png&w=3840..."}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="61c7ce39d2e53d98604cda0578cfe231"
+                                  >
+                                ...
+                              <button className="project-card" type="button" aria-label="AI 销售 Agen..." ...>
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fai-sales-agent%2Fcover.png&w=..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fai-sales-agent%2Fcover.png&w=384..."}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="67e6a0760084f6ca566f074b321c844e"
+                                  >
+                                ...
+                              <button className="project-card" type="button" aria-label="AI Coding ..." ...>
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fvibe-coding%2Fcover.png&w=256..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fvibe-coding%2Fcover.png&w=3840&q=75"}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="87a77c57f6deee89f86a531a3bc27af9"
+                                  >
+                                ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh#projects" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <HomeHeader>
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                            <div className="projects-c..." data-index={0}>
+                              <button className="project-card" type="button" aria-label="DesignSpar..." ...>
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fdesignspark%2Fcover.png&w=256..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fdesignspark%2Fcover.png&w=3840&q=75"}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="b2068e21e7ed58aecc428341cb21bcc4"
+                                  >
+                                ...
+                              <button className="project-card" type="button" aria-label="交换人生: AI 情..." ...>
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Flife-exchange%2Fcover.png&w=2..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Flife-exchange%2Fcover.png&w=3840..."}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="61c7ce39d2e53d98604cda0578cfe231"
+                                  >
+                                ...
+                              <button className="project-card" type="button" aria-label="AI 销售 Agen..." ...>
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fai-sales-agent%2Fcover.png&w=..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fai-sales-agent%2Fcover.png&w=384..."}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="67e6a0760084f6ca566f074b321c844e"
+                                  >
+                                ...
+                              <button className="project-card" type="button" aria-label="AI Coding ..." ...>
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fvibe-coding%2Fcover.png&w=256..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fvibe-coding%2Fcover.png&w=3840&q=75"}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="87a77c57f6deee89f86a531a3bc27af9"
+                                  >
+                                ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+⨯ Failed to generate static paths for /[lang]:
+SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>) {
+  type: 'SyntaxError'
+}
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh#projects" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <HomeHeader>
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                            <div className="projects-c..." data-index={0}>
+                              <button className="project-card" type="button" aria-label="DesignSpar..." ...>
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fdesignspark%2Fcover.png&w=256..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fdesignspark%2Fcover.png&w=3840&q=75"}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="b2068e21e7ed58aecc428341cb21bcc4"
+                                  >
+                                ...
+                              <button className="project-card" type="button" aria-label="交换人生: AI 情..." ...>
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Flife-exchange%2Fcover.png&w=2..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Flife-exchange%2Fcover.png&w=3840..."}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="61c7ce39d2e53d98604cda0578cfe231"
+                                  >
+                                ...
+                              <button className="project-card" type="button" aria-label="AI 销售 Agen..." ...>
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fai-sales-agent%2Fcover.png&w=..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fai-sales-agent%2Fcover.png&w=384..."}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="67e6a0760084f6ca566f074b321c844e"
+                                  >
+                                ...
+                              <button className="project-card" type="button" aria-label="AI Coding ..." ...>
+                                <div className="project-ca...">
+                                  <img
+                                    alt=""
+                                    fetchPriority={undefined}
+                                    loading="lazy"
+                                    width={undefined}
+                                    height={undefined}
+                                    decoding="async"
+                                    data-nimg="fill"
+                                    className={undefined}
+                                    style={{position:"absolute",height:"100%",width:"100%",left:0,top:0,right:0,bottom:0,objectFit:undefined, ...}}
+                                    sizes="(max-width: 639px) 82vw, (max-width: 1023px) 43vw, 29vw"
+                                    srcSet={"/_next/image?url=%2Fportfolio%2Fprojects%2Fvibe-coding%2Fcover.png&w=256..."}
+                                    src={"/_next/image?url=%2Fportfolio%2Fprojects%2Fvibe-coding%2Fcover.png&w=3840&q=75"}
+                                    ref={function}
+                                    onLoad={function onLoad}
+                                    onError={function onError}
+-                                   data-extentions-extra-ocr-id="87a77c57f6deee89f86a531a3bc27af9"
+                                  >
+                                ...
+                          ...
+                    ...
+                  ...
+      ...
+ 

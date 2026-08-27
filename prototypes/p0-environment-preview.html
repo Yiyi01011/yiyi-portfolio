@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>P0-C Environment Preview</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #27332e;
+        --muted: #68736d;
+        --line: #d9ded9;
+        --paper: #f4f6f2;
+        --panel: #fff;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      main {
+        width: min(1480px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 32px 0 56px;
+      }
+
+      h1, h2, p { margin: 0; }
+      h1 { font-size: 24px; }
+      h2 { margin-top: 32px; font-size: 18px; }
+      .intro { margin-top: 8px; color: var(--muted); font-size: 14px; }
+
+      .asset-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .asset-card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--panel);
+      }
+
+      .asset-card header {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line);
+        font-size: 12px;
+      }
+
+      .asset-card header span:last-child { color: var(--muted); }
+
+      .stage {
+        display: grid;
+        place-items: center;
+        min-height: 210px;
+        padding: 18px;
+      }
+
+      .stage img {
+        display: block;
+        width: 100%;
+        max-height: 250px;
+        object-fit: contain;
+      }
+
+      .light { background: #f7f1e7; }
+      .dark { background: #25312d; }
+      .checker {
+        background-color: #f7f7f7;
+        background-image:
+          linear-gradient(45deg, #d8ddd9 25%, transparent 25%),
+          linear-gradient(-45deg, #d8ddd9 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, #d8ddd9 75%),
+          linear-gradient(-45deg, transparent 75%, #d8ddd9 75%);
+        background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+        background-size: 24px 24px;
+      }
+
+      .stitch-wrap {
+        overflow: auto;
+        margin-top: 14px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #dcebe5;
+      }
+
+      .stitch-canvas {
+        position: relative;
+        width: 1600px;
+        height: 400px;
+        overflow: hidden;
+      }
+
+      .stitch-canvas img {
+        position: absolute;
+        top: 0;
+        width: 800px;
+        height: 200px;
+        object-fit: contain;
+      }
+
+      .stitch-canvas .far-a { left: 0; }
+      .stitch-canvas .far-b { left: 800px; }
+      .stitch-canvas .mid-a { left: 0; top: 180px; }
+      .stitch-canvas .mid-b { left: 800px; top: 180px; }
+      .seam {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        bottom: 0;
+        left: 800px;
+        border-left: 1px dashed rgb(39 51 46 / 48%);
+      }
+
+      .seam::after {
+        content: "repeat seam";
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        padding: 3px 5px;
+        color: #425149;
+        background: rgb(255 255 255 / 78%);
+        font: 11px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
+      }
+
+      .waterfall-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(150px, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .waterfall-check {
+        display: grid;
+        place-items: center;
+        min-height: 260px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #25312d;
+      }
+
+      .waterfall-frame {
+        width: 90px;
+        height: 180px;
+        background-image: url("../public/portfolio/environment/home/hero-waterfall-sprite.png");
+        background-repeat: no-repeat;
+        background-size: 360px 180px;
+        image-rendering: pixelated;
+      }
+
+      .frame-1 { background-position: 0 0; }
+      .frame-2 { background-position: -90px 0; }
+      .frame-3 { background-position: -180px 0; }
+      .frame-4 { background-position: -270px 0; }
+      .waterfall-loop { animation: waterfall-loop 800ms steps(1, end) infinite; }
+
+      @keyframes waterfall-loop {
+        0% { background-position: 0 0; }
+        25% { background-position: -90px 0; }
+        50% { background-position: -180px 0; }
+        75%, 100% { background-position: -270px 0; }
+      }
+
+      .composite-frame {
+        overflow: auto;
+        margin-top: 14px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #dcebe5;
+      }
+
+      .hero {
+        position: relative;
+        width: 1440px;
+        height: 900px;
+        overflow: hidden;
+        background: linear-gradient(#dcebe5 0%, #f1e9d2 72%, #d8e3c7 100%);
+        isolation: isolate;
+      }
+
+      .layer {
+        position: absolute;
+        display: block;
+        object-fit: contain;
+        pointer-events: none;
+      }
+
+      .clouds-far { z-index: 1; left: -80px; top: 18px; width: 1600px; height: 400px; }
+      .clouds-mid { z-index: 2; left: 0; top: 216px; width: 1440px; height: 320px; }
+      .island-left { z-index: 4; left: 0; top: 496px; width: 360px; height: 280px; }
+      .island-right { z-index: 4; left: 1094px; top: 450px; width: 346px; height: 263px; }
+      .island-center { z-index: 4; left: 446px; top: 468px; width: 648px; height: 365px; }
+      .architecture-left { z-index: 6; left: 58px; top: 430px; width: 240px; height: 240px; }
+      .architecture-right { z-index: 6; right: 32px; top: 387px; width: 320px; height: 270px; }
+      .paths { z-index: 7; left: 120px; bottom: 36px; width: 1200px; height: 540px; }
+      .hero-waterfall { z-index: 8; position: absolute; left: 1280px; top: 530px; }
+      .avatar {
+        z-index: 8;
+        left: 850px;
+        bottom: 295px;
+        width: 200px;
+        height: 300px;
+        transform: translateX(-50%);
+      }
+      .plants { z-index: 9; left: 120px; bottom: 44px; width: 1200px; height: 390px; }
+
+      .guide {
+        position: absolute;
+        z-index: 20;
+        inset: 24px;
+        border: 1px dashed rgb(39 51 46 / 30%);
+        pointer-events: none;
+      }
+
+      .guide::after {
+        content: "1440 × 900 complete P0 check";
+        position: absolute;
+        top: 8px;
+        left: 10px;
+        padding: 4px 6px;
+        color: #425149;
+        background: rgb(255 255 255 / 72%);
+        font: 12px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .waterfall-loop { animation: none; }
+      }
+
+      @media (max-width: 900px) {
+        main { width: min(100% - 20px, 1480px); padding-top: 20px; }
+        .asset-grid { grid-template-columns: 1fr; }
+        .waterfall-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>P0-C 云层与瀑布检查</h1>
+      <p class="intro">独立透明度、重复接缝、瀑布帧序列和完整 P0 分层组合。</p>
+
+      <section>
+        <h2>远景云层</h2>
+        <div class="asset-grid">
+          <article class="asset-card"><header><span>浅色</span><span>3200 × 800</span></header><div class="stage light"><img src="../public/portfolio/environment/home/hero-clouds-far.png" alt="远景云层" /></div></article>
+          <article class="asset-card"><header><span>深色</span><span>alpha check</span></header><div class="stage dark"><img src="../public/portfolio/environment/home/hero-clouds-far.png" alt="" /></div></article>
+          <article class="asset-card"><header><span>棋盘格</span><span>edge check</span></header><div class="stage checker"><img src="../public/portfolio/environment/home/hero-clouds-far.png" alt="" /></div></article>
+        </div>
+      </section>
+
+      <section>
+        <h2>中景云层</h2>
+        <div class="asset-grid">
+          <article class="asset-card"><header><span>浅色</span><span>2880 × 640</span></header><div class="stage light"><img src="../public/portfolio/environment/home/hero-clouds-mid.png" alt="中景云层" /></div></article>
+          <article class="asset-card"><header><span>深色</span><span>alpha check</span></header><div class="stage dark"><img src="../public/portfolio/environment/home/hero-clouds-mid.png" alt="" /></div></article>
+          <article class="asset-card"><header><span>棋盘格</span><span>edge check</span></header><div class="stage checker"><img src="../public/portfolio/environment/home/hero-clouds-mid.png" alt="" /></div></article>
+        </div>
+      </section>
+
+      <section>
+        <h2>云层双副本接缝检查</h2>
+        <div class="stitch-wrap">
+          <div class="stitch-canvas">
+            <img class="far-a" src="../public/portfolio/environment/home/hero-clouds-far.png" alt="" />
+            <img class="far-b" src="../public/portfolio/environment/home/hero-clouds-far.png" alt="" />
+            <img class="mid-a" src="../public/portfolio/environment/home/hero-clouds-mid.png" alt="" />
+            <img class="mid-b" src="../public/portfolio/environment/home/hero-clouds-mid.png" alt="" />
+            <div class="seam"></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>瀑布四帧与循环</h2>
+        <div class="waterfall-grid">
+          <div class="waterfall-check"><div class="waterfall-frame frame-1" title="Frame 1"></div></div>
+          <div class="waterfall-check"><div class="waterfall-frame frame-2" title="Frame 2"></div></div>
+          <div class="waterfall-check"><div class="waterfall-frame frame-3" title="Frame 3"></div></div>
+          <div class="waterfall-check"><div class="waterfall-frame frame-4" title="Frame 4"></div></div>
+          <div class="waterfall-check"><div class="waterfall-frame waterfall-loop" title="Loop"></div></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>1440 × 900 完整 P0 组合</h2>
+        <div class="composite-frame">
+          <div class="hero">
+            <img class="layer clouds-far" src="../public/portfolio/environment/home/hero-clouds-far.png" alt="" />
+            <img class="layer clouds-mid" src="../public/portfolio/environment/home/hero-clouds-mid.png" alt="" />
+            <img class="layer island-left" src="../public/portfolio/environment/home/hero-island-left.png" alt="" />
+            <img class="layer island-right" src="../public/portfolio/environment/home/hero-island-right.png" alt="" />
+            <img class="layer island-center" src="../public/portfolio/environment/home/hero-island-center.png" alt="" />
+            <img class="layer architecture-left" src="../public/portfolio/environment/home/hero-architecture-left.png" alt="" />
+            <img class="layer architecture-right" src="../public/portfolio/environment/home/hero-architecture-right.png" alt="" />
+            <img class="layer paths" src="../public/portfolio/environment/home/hero-paths-stairs.png" alt="" />
+            <div class="waterfall-frame waterfall-loop hero-waterfall"></div>
+            <img class="layer avatar" src="../public/portfolio/avatar/avatar-master.png" alt="" />
+            <img class="layer plants" src="../public/portfolio/environment/home/hero-plants.png" alt="" />
+            <div class="guide"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

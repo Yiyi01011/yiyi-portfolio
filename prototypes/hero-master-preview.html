@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hero Master Preview</title>
+    <style>
+      :root { --hero-bg: #F8F4EC; }
+
+      * { box-sizing: border-box; }
+
+      html,
+      body {
+        margin: 0;
+        min-width: 1440px;
+        min-height: 900px;
+        background: var(--hero-bg);
+      }
+
+      .stage {
+        display: grid;
+        place-items: center;
+        width: 1440px;
+        height: 900px;
+        margin: 0 auto;
+        overflow: hidden;
+        background: var(--hero-bg);
+      }
+
+      .hero-master {
+        position: relative;
+        width: 1440px;
+        aspect-ratio: 1672 / 941;
+      }
+
+      .hero-master > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .hotspot {
+        position: absolute;
+        display: block;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        color: transparent;
+        text-decoration: none;
+      }
+
+      .hotspot:focus-visible {
+        outline: 2px solid #263c33;
+        outline-offset: 2px;
+      }
+
+      .debug .hotspot {
+        border: 1px solid rgba(183, 53, 53, 0.9);
+        background: rgba(232, 89, 89, 0.14);
+      }
+
+      .debug .hotspot::after {
+        content: attr(data-label);
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        padding: 2px 4px;
+        color: #6e2424;
+        background: rgba(255, 255, 255, 0.9);
+        font: 10px/1.25 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        white-space: nowrap;
+      }
+
+      .about { left: 63.576%; top: 0.744%; width: 5.144%; height: 6.164%; }
+      .projects { left: 71.411%; top: 0.744%; width: 4.904%; height: 6.164%; }
+      .experience { left: 78.648%; top: 0.744%; width: 5.144%; height: 6.164%; }
+      .contact { left: 85.526%; top: 0.744%; width: 5.144%; height: 6.164%; }
+      .view-projects { left: 10.407%; top: 49.097%; width: 12.799%; height: 6.589%; }
+      .download-resume { left: 24.402%; top: 49.097%; width: 10.526%; height: 6.589%; }
+      .project-designspark { left: 6.699%; top: 82.253%; width: 27.632%; height: 17.747%; }
+      .project-life-exchange { left: 35.885%; top: 82.253%; width: 27.632%; height: 17.747%; }
+      .project-ai-sales { left: 65.191%; top: 82.253%; width: 28.050%; height: 17.747%; }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <div class="hero-master" id="heroMaster">
+        <img src="../public/portfolio/environment/home/hero-master-desktop.png" alt="" />
+
+        <a class="hotspot about" href="#about" aria-label="关于我" data-label="关于我"></a>
+        <a class="hotspot projects" href="#projects" aria-label="项目" data-label="项目"></a>
+        <a class="hotspot experience" href="#experience" aria-label="经历" data-label="经历"></a>
+        <a class="hotspot contact" href="#contact" aria-label="联系" data-label="联系"></a>
+        <a class="hotspot view-projects" href="#projects" aria-label="查看项目" data-label="查看项目"></a>
+        <a class="hotspot download-resume" href="#resume" aria-label="下载简历" data-label="下载简历"></a>
+        <a class="hotspot project-designspark" href="#designspark" aria-label="DesignSpark 项目" data-label="DesignSpark 项目卡"></a>
+        <a class="hotspot project-life-exchange" href="#life-exchange" aria-label="交换人生项目" data-label="交换人生项目卡"></a>
+        <a class="hotspot project-ai-sales" href="#ai-sales-agent" aria-label="AI 销售 Agent 项目" data-label="AI 销售 Agent 项目卡"></a>
+      </div>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("debug") === "1") {
+        document.getElementById("heroMaster").classList.add("debug");
+      }
+    </script>
+  </body>
+</html>

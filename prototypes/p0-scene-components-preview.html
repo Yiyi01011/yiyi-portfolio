@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>P0-B Scene Components Preview</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #27332e;
+        --muted: #68736d;
+        --line: #d9ded9;
+        --paper: #f4f6f2;
+        --panel: #ffffff;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      main {
+        width: min(1480px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 32px 0 56px;
+      }
+
+      h1, h2, p { margin: 0; }
+      h1 { font-size: 24px; }
+      h2 { margin-top: 32px; font-size: 18px; }
+      .intro { margin-top: 8px; color: var(--muted); font-size: 14px; }
+
+      .asset-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .asset-card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--panel);
+      }
+
+      .asset-card header {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line);
+        font-size: 12px;
+      }
+
+      .asset-card header span:last-child { color: var(--muted); }
+
+      .stage {
+        display: grid;
+        place-items: center;
+        min-height: 230px;
+        padding: 18px;
+      }
+
+      .stage img {
+        display: block;
+        max-width: 100%;
+        max-height: 260px;
+        object-fit: contain;
+      }
+
+      .light { background: #f7f4eb; }
+      .dark { background: #25312d; }
+      .checker {
+        background-color: #f7f7f7;
+        background-image:
+          linear-gradient(45deg, #d8ddd9 25%, transparent 25%),
+          linear-gradient(-45deg, #d8ddd9 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, #d8ddd9 75%),
+          linear-gradient(-45deg, transparent 75%, #d8ddd9 75%);
+        background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+        background-size: 24px 24px;
+      }
+
+      .composite-frame {
+        overflow: auto;
+        margin-top: 14px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #dde8dc;
+      }
+
+      .hero {
+        position: relative;
+        width: 1440px;
+        height: 900px;
+        overflow: hidden;
+        background: linear-gradient(#dcebe5 0%, #f1e9d2 72%, #d8e3c7 100%);
+        isolation: isolate;
+      }
+
+      .layer {
+        position: absolute;
+        display: block;
+        object-fit: contain;
+        pointer-events: none;
+      }
+
+      .island-left { z-index: 4; left: 0; top: 496px; width: 360px; height: 280px; }
+      .island-right { z-index: 4; left: 1094px; top: 450px; width: 346px; height: 263px; }
+      .island-center { z-index: 4; left: 446px; top: 468px; width: 648px; height: 365px; }
+      .architecture-left { z-index: 6; left: 58px; top: 430px; width: 240px; height: 240px; }
+      .architecture-right { z-index: 6; right: 32px; top: 387px; width: 320px; height: 270px; }
+      .paths { z-index: 7; left: 120px; bottom: 36px; width: 1200px; height: 540px; }
+      .plants { z-index: 9; left: 120px; bottom: 44px; width: 1200px; height: 390px; }
+      .avatar {
+        z-index: 8;
+        left: 850px;
+        bottom: 295px;
+        width: 200px;
+        height: 300px;
+        transform: translateX(-50%);
+      }
+
+      .guide {
+        position: absolute;
+        z-index: 20;
+        inset: 24px;
+        border: 1px dashed rgb(39 51 46 / 30%);
+        pointer-events: none;
+      }
+
+      .guide::after {
+        content: "1440 × 900 composite check";
+        position: absolute;
+        top: 8px;
+        left: 10px;
+        padding: 4px 6px;
+        color: #425149;
+        background: rgb(255 255 255 / 72%);
+        font: 12px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
+      }
+
+      @media (max-width: 900px) {
+        main { width: min(100% - 20px, 1480px); padding-top: 20px; }
+        .asset-grid { grid-template-columns: 1fr; }
+        .stage { min-height: 190px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>P0-B 场景组件透明度与组合检查</h1>
+      <p class="intro">独立素材按浅色、深色和棋盘格背景检查；下方组合仅用于尺寸与层级验证。</p>
+
+      <section id="asset-checks">
+        <h2>独立素材</h2>
+        <div class="asset-grid">
+          <article class="asset-card">
+            <header><span>左侧遗迹建筑 · 浅色</span><span>480 × 480</span></header>
+            <div class="stage light"><img src="../public/portfolio/environment/home/hero-architecture-left.png" alt="左侧遗迹建筑" /></div>
+          </article>
+          <article class="asset-card">
+            <header><span>左侧遗迹建筑 · 深色</span><span>alpha check</span></header>
+            <div class="stage dark"><img src="../public/portfolio/environment/home/hero-architecture-left.png" alt="" /></div>
+          </article>
+          <article class="asset-card">
+            <header><span>左侧遗迹建筑 · 棋盘格</span><span>edge check</span></header>
+            <div class="stage checker"><img src="../public/portfolio/environment/home/hero-architecture-left.png" alt="" /></div>
+          </article>
+
+          <article class="asset-card">
+            <header><span>右侧建筑与电脑台 · 浅色</span><span>640 × 540</span></header>
+            <div class="stage light"><img src="../public/portfolio/environment/home/hero-architecture-right.png" alt="右侧建筑与电脑台" /></div>
+          </article>
+          <article class="asset-card">
+            <header><span>右侧建筑与电脑台 · 深色</span><span>alpha check</span></header>
+            <div class="stage dark"><img src="../public/portfolio/environment/home/hero-architecture-right.png" alt="" /></div>
+          </article>
+          <article class="asset-card">
+            <header><span>右侧建筑与电脑台 · 棋盘格</span><span>edge check</span></header>
+            <div class="stage checker"><img src="../public/portfolio/environment/home/hero-architecture-right.png" alt="" /></div>
+          </article>
+
+          <article class="asset-card">
+            <header><span>道路与台阶 · 浅色</span><span>2400 × 1080</span></header>
+            <div class="stage light"><img src="../public/portfolio/environment/home/hero-paths-stairs.png" alt="道路与台阶" /></div>
+          </article>
+          <article class="asset-card">
+            <header><span>道路与台阶 · 深色</span><span>alpha check</span></header>
+            <div class="stage dark"><img src="../public/portfolio/environment/home/hero-paths-stairs.png" alt="" /></div>
+          </article>
+          <article class="asset-card">
+            <header><span>道路与台阶 · 棋盘格</span><span>edge check</span></header>
+            <div class="stage checker"><img src="../public/portfolio/environment/home/hero-paths-stairs.png" alt="" /></div>
+          </article>
+
+          <article class="asset-card">
+            <header><span>首页植物组 · 浅色</span><span>2400 × 780</span></header>
+            <div class="stage light"><img src="../public/portfolio/environment/home/hero-plants.png" alt="首页植物组" /></div>
+          </article>
+          <article class="asset-card">
+            <header><span>首页植物组 · 深色</span><span>alpha check</span></header>
+            <div class="stage dark"><img src="../public/portfolio/environment/home/hero-plants.png" alt="" /></div>
+          </article>
+          <article class="asset-card">
+            <header><span>首页植物组 · 棋盘格</span><span>edge check</span></header>
+            <div class="stage checker"><img src="../public/portfolio/environment/home/hero-plants.png" alt="" /></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="composite-check">
+        <h2>1440 × 900 Hero 组合检查</h2>
+        <div class="composite-frame">
+          <div class="hero">
+            <img class="layer island-left" src="../public/portfolio/environment/home/hero-island-left.png" alt="" />
+            <img class="layer island-right" src="../public/portfolio/environment/home/hero-island-right.png" alt="" />
+            <img class="layer island-center" src="../public/portfolio/environment/home/hero-island-center.png" alt="" />
+            <img class="layer architecture-left" src="../public/portfolio/environment/home/hero-architecture-left.png" alt="" />
+            <img class="layer architecture-right" src="../public/portfolio/environment/home/hero-architecture-right.png" alt="" />
+            <img class="layer paths" src="../public/portfolio/environment/home/hero-paths-stairs.png" alt="" />
+            <img class="layer plants" src="../public/portfolio/environment/home/hero-plants.png" alt="" />
+            <img class="layer avatar" src="../public/portfolio/avatar/avatar-master.png" alt="" />
+            <div class="guide"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>P0 Five Scene Layout</title>
+    <style>
+      :root { --hero-bg: #F8F4EC; }
+
+      * { box-sizing: border-box; }
+
+      html,
+      body {
+        margin: 0;
+        min-width: 1440px;
+        background: #e7ece7;
+        color: #27302c;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+
+      .stage {
+        position: relative;
+        width: 1440px;
+        height: 900px;
+        margin: 0 auto;
+        overflow: hidden;
+        isolation: isolate;
+        background: var(--hero-bg);
+        border: 1px solid rgba(43, 55, 49, 0.25);
+      }
+
+      .asset,
+      .scene,
+      .guide {
+        position: absolute;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .cloud-far {
+        z-index: 1;
+        left: -80px;
+        top: 18px;
+        width: 1600px;
+        height: 400px;
+      }
+
+      .cloud-mid {
+        z-index: 2;
+        left: 0;
+        top: 216px;
+        width: 1440px;
+        height: 320px;
+      }
+
+      .scene {
+        display: grid;
+        align-content: start;
+        padding: 10px;
+        border: 2px dashed var(--border);
+        background: var(--fill);
+        box-shadow: inset 0 -34px 28px rgba(255, 250, 241, 0.72);
+      }
+
+      .scene::after {
+        content: "";
+        position: absolute;
+        left: 7%;
+        right: 7%;
+        bottom: 7%;
+        height: 34%;
+        border-top: 1px dotted rgba(43, 55, 49, 0.3);
+        background: linear-gradient(transparent, rgba(255, 250, 241, 0.78));
+      }
+
+      .scene-label {
+        position: relative;
+        z-index: 2;
+        width: fit-content;
+        max-width: 100%;
+        padding: 6px 8px;
+        border: 1px solid rgba(43, 55, 49, 0.22);
+        background: rgba(255, 255, 255, 0.9);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .scene-label strong { display: block; font-size: 13px; }
+
+      .scene-left {
+        --fill: rgba(201, 176, 112, 0.25);
+        --border: #9f8041;
+        z-index: 4;
+        left: 0;
+        top: 495px;
+        width: 330px;
+        height: 285px;
+      }
+
+      .scene-center {
+        --fill: rgba(135, 157, 83, 0.25);
+        --border: #697d3e;
+        z-index: 5;
+        left: 330px;
+        top: 545px;
+        width: 660px;
+        height: 265px;
+      }
+
+      .scene-right {
+        --fill: rgba(105, 160, 166, 0.22);
+        --border: #4d878c;
+        z-index: 6;
+        left: 1020px;
+        top: 500px;
+        width: 290px;
+        height: 290px;
+      }
+
+      .scene-far-right {
+        --fill: rgba(191, 139, 110, 0.22);
+        --border: #9c684e;
+        z-index: 5;
+        left: 1290px;
+        top: 425px;
+        width: 180px;
+        height: 350px;
+      }
+
+      .scene-signpost {
+        --fill: rgba(111, 105, 155, 0.24);
+        --border: #625d8c;
+        z-index: 7;
+        left: 1315px;
+        top: 620px;
+        width: 130px;
+        height: 150px;
+      }
+
+      .scene-signpost .scene-label { font-size: 10px; }
+      .scene-signpost .scene-label strong { font-size: 11px; }
+
+      .avatar {
+        z-index: 10;
+        left: 850px;
+        bottom: 295px;
+        width: 200px;
+        height: 300px;
+        transform: translateX(-50%);
+        image-rendering: pixelated;
+      }
+
+      .waterfall {
+        z-index: 8;
+        left: 1225px;
+        top: 600px;
+        width: 45px;
+        height: 90px;
+        overflow: hidden;
+        border: 2px solid #2f7896;
+        background: rgba(78, 167, 207, 0.34);
+      }
+
+      .waterfall::before {
+        content: "瀑布 Sprite\A45×90\Az-index 8";
+        white-space: pre;
+        position: absolute;
+        inset: 4px;
+        font-size: 8px;
+        line-height: 1.35;
+      }
+
+      .title-safe {
+        z-index: 30;
+        left: 100px;
+        top: 140px;
+        width: 500px;
+        height: 330px;
+        border: 1px dashed rgba(45, 104, 81, 0.55);
+        background: rgba(68, 147, 112, 0.08);
+      }
+
+      .title-safe::before {
+        content: "HTML 标题 / 介绍 / 按钮安全区  500×330  z-index 30";
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        padding: 5px 7px;
+        background: rgba(255, 255, 255, 0.9);
+        font-size: 11px;
+      }
+
+      .standing-line {
+        z-index: 11;
+        left: 750px;
+        top: 598px;
+        width: 200px;
+        border-top: 2px solid rgba(167, 55, 55, 0.72);
+      }
+
+      .standing-line::after {
+        content: "人物鞋底锚线 y=598";
+        position: absolute;
+        top: 5px;
+        left: 36px;
+        padding: 3px 5px;
+        color: #713737;
+        background: rgba(255, 255, 255, 0.88);
+        font-size: 9px;
+      }
+
+      .badge {
+        z-index: 40;
+        top: 12px;
+        left: 12px;
+        padding: 6px 8px;
+        border: 1px solid rgba(43, 55, 49, 0.25);
+        background: rgba(255, 255, 255, 0.92);
+        font-size: 11px;
+      }
+
+      .legend {
+        z-index: 40;
+        top: 12px;
+        right: 12px;
+        width: 330px;
+        padding: 8px 10px;
+        border: 1px solid rgba(43, 55, 49, 0.25);
+        background: rgba(255, 255, 255, 0.92);
+        font-size: 10px;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage">
+      <div class="guide badge">1440 × 900 · 五组场景位置原型</div>
+      <div class="guide legend">场景组内部包含石材、草坪、台阶与植物；组间允许暖白留白。仅云层、人物和瀑布保持独立动态。</div>
+
+      <img class="asset cloud-far" src="../public/portfolio/environment/home/hero-clouds-far.png" alt="" />
+      <img class="asset cloud-mid" src="../public/portfolio/environment/home/hero-clouds-mid.png" alt="" />
+
+      <section class="scene scene-left">
+        <span class="scene-label"><strong>01 左侧遗迹与草地组</strong>330×285 · bottom left · z-index 4</span>
+      </section>
+      <section class="scene scene-center">
+        <span class="scene-label"><strong>02 中央人物平台与草地组</strong>660×265 · bottom center · z-index 5</span>
+      </section>
+      <section class="scene scene-right">
+        <span class="scene-label"><strong>03 右侧电脑台、水池与瀑布出口组</strong>290×290 · bottom center · z-index 6</span>
+      </section>
+      <section class="scene scene-far-right">
+        <span class="scene-label"><strong>04 最右侧台阶建筑组</strong>180×350 · right 30px clipped · z-index 5</span>
+      </section>
+      <section class="scene scene-signpost">
+        <span class="scene-label"><strong>05 路牌小组</strong>130×150<br />bottom center · z-index 7</span>
+      </section>
+
+      <div class="asset waterfall"></div>
+      <img class="asset avatar" src="../public/portfolio/avatar/avatar-master.png" alt="" />
+      <div class="guide standing-line"></div>
+      <div class="guide title-safe"></div>
+    </main>
+  </body>
+</html>

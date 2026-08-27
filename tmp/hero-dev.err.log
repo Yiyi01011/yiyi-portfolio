@@ -1,0 +1,732 @@
+⨯ SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>) {
+  page: '/en'
+}
+⨯ SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>) {
+  page: '/en'
+}
+[browser] Uncaught SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerScrollHandlerNew focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="zh/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+            <HTTPAccessFallbackErrorBoundary pathname="/zh" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/zh" tree={[...]} params={{lang:"zh"}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="[lang]/pag...">
+                      <SegmentTrieNode>
+                      <Home>
+                        <main className="home-page">
+                          <Hero>
+                            <section className="hero" id="top" aria-labelledby="hero-title" data-locale="zh">
+                              <header>
+                              <div className="hero-visual" aria-hidden="true">
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-far"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-far-v1.png"
+                                  width="2048"
+                                  height="768"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="77d87cfb9ab6282b274d3ea6a6d650e8"
+                                >
+                                <img
+                                  className="hero-layer hero-cloud hero-cloud-near"
+                                  src="/portfolio/environment/home/hero-layers/cloud-layer-near-v2.png"
+                                  width="1672"
+                                  height="941"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="e82ab183556f6e7ef39cf6ebda5b70e5"
+                                >
+                                <img
+                                  className="hero-layer hero-environment"
+                                  src="/portfolio/environment/home/hero-layers/home-environment-layer-v2.png"
+                                  width="2048"
+                                  height="682"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="fd0f0a8e7d0b900ddfbae123e22e8270"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-left"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-left-v1.png"
+                                  width="130"
+                                  height="140"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="b9746af17d22ae27c5efaec6156841be"
+                                >
+                                <img
+                                  className="hero-layer hero-planter hero-planter-sprout"
+                                  src="/portfolio/environment/home/hero-layers/floating-planter-sprout-v1.png"
+                                  width="76"
+                                  height="99"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="0b43ae5e09ac2a641f69b39562dd2a8a"
+                                >
+                                <img
+                                  className="hero-layer hero-avatar"
+                                  src="/portfolio/avatar/avatar-master.png"
+                                  width="1024"
+                                  height="1536"
+                                  alt=""
+                                  draggable="false"
+-                                 data-extentions-extra-ocr-id="6d59fdf8cebea5e51b4eff4a3f0d2804"
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+      ...
+ 
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+⨯ Failed to generate static paths for /[lang]:
+SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>) {
+  type: 'SyntaxError'
+}
