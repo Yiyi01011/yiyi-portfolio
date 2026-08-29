@@ -412,6 +412,42 @@ a { color: inherit; }
   z-index: 1;
 }
 
+.about-story-01 .about-story-background {
+  inset: auto;
+  top: calc(50% + 25px);
+  left: 50%;
+  width: 590px;
+  height: 424px;
+  transform: translate(-50%, calc(-50% - 40px));
+}
+
+.about-story-01 .about-story-foreground {
+  inset: auto;
+  top: calc(50% + 25px);
+  left: 50%;
+  width: 520px;
+  height: 409px;
+  transform: translate(-50%, -50%);
+}
+
+.about-story-02 .about-story-background {
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  transform: translate(-50%, calc(-50% - 30px));
+}
+
+.about-story-02 .about-story-foreground {
+  inset: auto;
+  top: calc(50% + 25px);
+  left: 50%;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  transform: translate(-50%, -50%);
+}
+
 .about-letter-backdrop {
   position: fixed;
   z-index: 300;

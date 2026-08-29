@@ -13,6 +13,11 @@ const guestbookEmojis = [
 
 type RobotExpression = "neutral" | "blink" | "look-left" | "look-right";
 
+type GuestbookApiMessage = {
+  id: number;
+  content: string;
+};
+
 const robotImages: Record<RobotExpression, string> = {
   neutral: `${CONTACT_PATH}/robot/robot-face-neutral.png.png`,
   blink: `${CONTACT_PATH}/robot/robot-face-blink.png.png`,
@@ -76,7 +81,10 @@ const copy = {
     chooseEmoji: "选择表情",
     insertEmoji: "插入",
     submit: "发送留言",
-    pending: "留言功能即将开放",
+    submitting: "发送中…",
+    success: "留言已收到，审核后会展示",
+    error: "发送失败，请稍后再试",
+    visitorAuthor: "一位访客",
   },
   en: {
     greeting: "Nice to meet you!",
@@ -97,7 +105,10 @@ const copy = {
     chooseEmoji: "Choose an emoji",
     insertEmoji: "Insert",
     submit: "Send message",
-    pending: "Guestbook coming soon",
+    submitting: "Sending…",
+    success: "Message received and awaiting review",
+    error: "Unable to send. Please try again later",
+    visitorAuthor: "A visitor",
   },
 } as const;
 
@@ -115,6 +126,8 @@ export function ContactSection({ locale, ariaLabel }: { locale: "zh" | "en"; ari
   const content = copy[locale];
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [guestbookMessages, setGuestbookMessages] = useState<GuestbookApiMessage[]>([]);
   const [emojiOpen, setEmojiOpen] = useState(false);
   const [expression, setExpression] = useState<RobotExpression>("neutral");
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -133,6 +146,42 @@ export function ContactSection({ locale, ariaLabel }: { locale: "zh" | "en"; ari
     updatePreference();
     mediaQuery.addEventListener("change", updatePreference);
     return () => mediaQuery.removeEventListener("change", updatePreference);
+  }, []);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    const loadMessages = async () => {
+      try {
+        const response = await fetch("/api/guestbook", {
+          cache: "no-store",
+          signal: controller.signal,
+        });
+        if (!response.ok) return;
+
+        const payload: unknown = await response.json();
+        if (typeof payload !== "object" || payload === null || !("messages" in payload)) return;
+
+        const messages = (payload as { messages?: unknown }).messages;
+        if (!Array.isArray(messages)) return;
+
+        setGuestbookMessages(messages.filter((item): item is GuestbookApiMessage => (
+          typeof item === "object"
+          && item !== null
+          && "id" in item
+          && typeof item.id === "number"
+          && "content" in item
+          && typeof item.content === "string"
+        )));
+      } catch (error) {
+        if (!(error instanceof DOMException && error.name === "AbortError")) {
+          setGuestbookMessages([]);
+        }
+      }
+    };
+
+    void loadMessages();
+    return () => controller.abort();
   }, []);
 
   useEffect(() => {
@@ -199,20 +248,47 @@ export function ContactSection({ locale, ariaLabel }: { locale: "zh" | "en"; ari
     if (!reducedMotion) setExpression("neutral");
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!message.trim()) return;
+    const normalizedMessage = message.trim();
+    if (!normalizedMessage || isSubmitting) return;
+
     interactionRef.current = true;
-    setStatus(content.pending);
+    setIsSubmitting(true);
+    setStatus(content.submitting);
     if (!reducedMotion) setExpression("blink");
-    const timer = window.setTimeout(() => {
+
+    try {
+      const response = await fetch("/api/guestbook", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: normalizedMessage }),
+      });
+
+      if (!response.ok) throw new Error("Guestbook submission failed.");
+      setMessage("");
+      setStatus(content.success);
+    } catch {
+      setStatus(content.error);
+    } finally {
+      setIsSubmitting(false);
+    }
+
+    const robotTimer = window.setTimeout(() => {
       interactionRef.current = false;
       setExpression("neutral");
     }, 170);
-    const statusTimer = window.setTimeout(() => setStatus(""), 1800);
-    timersRef.current.push(timer, statusTimer);
-    // TODO: Replace this local status with the real guestbook API when a backend is approved.
+    const statusTimer = window.setTimeout(() => setStatus(""), 3200);
+    timersRef.current.push(robotTimer, statusTimer);
   };
+
+  const displayedNotes = guestbookMessages.length > 0
+    ? guestbookMessages.map((item) => ({
+      key: `database-${item.id}`,
+      author: content.visitorAuthor,
+      message: item.content,
+    }))
+    : content.notes.map((note, index) => ({ key: `default-${index}`, ...note }));
 
   return (
     <section className="contact-section" id="contact" aria-label={ariaLabel} data-locale={locale}>
@@ -236,7 +312,9 @@ export function ContactSection({ locale, ariaLabel }: { locale: "zh" | "en"; ari
                 <img className="contact-board-frame" src={`${CONTACT_PATH}/guestbook/guestbook-board-frame.png.png`} alt="" />
                 <strong className="contact-board-title">{content.boardTitle}</strong>
                 <div className="contact-notes">
-                  {content.notes.map((note, index) => <GuestbookNote key={note.author} {...note} index={index} />)}
+                  {displayedNotes.map(({ key, author, message: noteMessage }, index) => (
+                    <GuestbookNote key={key} author={author} message={noteMessage} index={index} />
+                  ))}
                 </div>
 
                 <form className="contact-guestbook-form" onSubmit={handleSubmit}>
@@ -294,7 +372,9 @@ export function ContactSection({ locale, ariaLabel }: { locale: "zh" | "en"; ari
                       </div>
                     ) : null}
                   </div>
-                  <button className="contact-guestbook-submit" type="submit" disabled={!message.trim()}>{content.submit}</button>
+                  <button className="contact-guestbook-submit" type="submit" disabled={isSubmitting || !message.trim()}>
+                    {isSubmitting ? content.submitting : content.submit}
+                  </button>
                   <output className="contact-form-status" aria-live="polite">{status}</output>
                 </form>
 

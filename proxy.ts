@@ -3,6 +3,8 @@ import { isLocale } from "@/content/i18n";
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  if (pathname === "/api" || pathname.startsWith("/api/")) return NextResponse.next();
+
   const firstSegment = pathname.split("/")[1];
   if (isLocale(firstSegment)) return NextResponse.next();
 
