@@ -261,6 +261,7 @@ export function AboutExperience({ locale }: { locale: Locale }) {
       {letterStory ? (
         <LetterDialog
           body={letterStory.body}
+          chapterNumber={letterStory.number}
           chapterLabel={letterStory.letterLabel}
           labels={content.dialog}
           paginated={letterStory.number === "03"}

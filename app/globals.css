@@ -448,6 +448,42 @@ a { color: inherit; }
   transform: translate(-50%, -50%);
 }
 
+.about-story-03 .about-story-background {
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  transform: translate(-50%, calc(-50% - 60px));
+}
+
+.about-story-03 .about-story-foreground {
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  width: calc(100% - 60px);
+  height: calc(100% - 60px);
+  transform: translate(-50%, -50%);
+}
+
+.about-story-04 .about-story-background {
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  transform: translate(-50%, calc(-50% - 40px));
+}
+
+.about-story-04 .about-story-foreground {
+  inset: auto;
+  top: calc(50% + 20px);
+  left: 50%;
+  width: calc(100% - 70px);
+  height: calc(100% - 70px);
+  transform: translate(-50%, -50%);
+}
+
 .about-letter-backdrop {
   position: fixed;
   z-index: 300;
@@ -492,6 +528,22 @@ a { color: inherit; }
   line-height: 1.35;
   text-align: center;
   pointer-events: none;
+}
+
+.about-letter-sign[data-chapter="04"] {
+  transform: translate(-5px, -6px);
+}
+
+.about-letter-sign[data-chapter="03"] {
+  transform: translate(-9px, -6px);
+}
+
+.about-letter-sign[data-chapter="02"] {
+  transform: translate(-9px, -6px);
+}
+
+.about-letter-sign[data-chapter="01"] {
+  transform: translate(-9px, -6px);
 }
 
 .about-letter {

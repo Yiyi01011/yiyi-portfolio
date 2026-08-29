@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 type LetterDialogProps = {
   body: readonly string[];
+  chapterNumber: string;
   chapterLabel: string;
   labels: {
     label: string;
@@ -16,7 +17,7 @@ type LetterDialogProps = {
   onClose: () => void;
 };
 
-export function LetterDialog({ body, chapterLabel, labels, paginated = false, onClose }: LetterDialogProps) {
+export function LetterDialog({ body, chapterNumber, chapterLabel, labels, paginated = false, onClose }: LetterDialogProps) {
   const [page, setPage] = useState(0);
   const dialogRef = useRef<HTMLElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -69,7 +70,7 @@ export function LetterDialog({ body, chapterLabel, labels, paginated = false, on
       onMouseDown={(event) => event.target === event.currentTarget && onClose()}
     >
       <div className="about-letter-scene">
-        <span className="about-letter-sign" aria-hidden="true">{chapterLabel}</span>
+        <span className="about-letter-sign" data-chapter={chapterNumber} aria-hidden="true">{chapterLabel}</span>
 
         <article
           ref={dialogRef}

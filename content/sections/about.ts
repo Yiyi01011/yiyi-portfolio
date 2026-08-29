@@ -91,7 +91,7 @@ const zh: AboutContent = {
     {
       number: "04", title: "工作之外", englishTitle: "BEYOND WORK",
       summary: "游泳、徒步和手绘，让我保持对节奏、路径与细节的感受力。它们也影响着我理解产品的方式。",
-      button: "打开我的手绘本 →", letterLabel: "工作之外",
+      button: "探索我的日常宇宙 →", letterLabel: "工作之外的日常",
       background: assets[3][0], scene: assets[3][1],
       body: [
         "工作之外，我喜欢游泳、徒步和手绘。",
@@ -159,7 +159,7 @@ const en: AboutContent = {
     {
       number: "04", title: "Beyond work", englishTitle: "LIFE & CURIOSITY",
       summary: "Swimming, hiking, and drawing keep me attentive to rhythm, paths, and detail. They also shape how I understand products.",
-      button: "Open my sketchbook →", letterLabel: "Beyond work",
+      button: "Explore my everyday universe →", letterLabel: "Life beyond work",
       background: assets[3][0], scene: assets[3][1],
       body: [
         "Outside work, I enjoy swimming, hiking, and drawing.",
