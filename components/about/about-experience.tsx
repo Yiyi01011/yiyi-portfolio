@@ -3,47 +3,16 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useCallback, useEffect, useState, type CSSProperties } from "react";
+import { preload } from "react-dom";
 import type { Locale } from "@/content/i18n";
 import { getAboutContent, type AboutStory } from "@/content/sections/about";
 import { LetterDialog } from "./letter-dialog";
 
 const ABOUT_PATH = "/portfolio/environment/about";
-const birdFrames = [
-  `${ABOUT_PATH}/opening/bird-flock-01.png`,
-  `${ABOUT_PATH}/opening/bird-flock-02.png`,
-  `${ABOUT_PATH}/opening/bird-flock-03.png`,
-] as const;
-const birdSequence = [0, 1, 2, 1] as const;
+const BIRD_SPRITE = `${ABOUT_PATH}/opening/bird-flock-sprite-v1.png`;
 
 function OpeningSection({ label }: { label: string }) {
-  const [birdSequenceIndex, setBirdSequenceIndex] = useState(0);
-
-  useEffect(() => {
-    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    birdFrames.forEach((src) => {
-      const image = new Image();
-      image.src = src;
-    });
-    let timer: number | undefined;
-
-    const syncBirdAnimation = () => {
-      if (timer) window.clearInterval(timer);
-      if (motionPreference.matches) {
-        setBirdSequenceIndex(0);
-        return;
-      }
-      timer = window.setInterval(() => {
-        setBirdSequenceIndex((index) => index === birdSequence.length - 1 ? 0 : index + 1);
-      }, 280);
-    };
-
-    syncBirdAnimation();
-    motionPreference.addEventListener("change", syncBirdAnimation);
-    return () => {
-      if (timer) window.clearInterval(timer);
-      motionPreference.removeEventListener("change", syncBirdAnimation);
-    };
-  }, []);
+  preload(BIRD_SPRITE, { as: "image" });
 
   return (
     <section className="about-opening" aria-label={label}>
@@ -54,7 +23,7 @@ function OpeningSection({ label }: { label: string }) {
         <img className="about-pixel-layer about-opening-cloud" src={`${ABOUT_PATH}/opening/cloud-layer.png.png`} alt="" draggable="false" />
       </div>
       <div className="bird-layer" aria-hidden="true">
-        <img className="about-pixel-layer about-opening-bird" src={birdFrames[birdSequence[birdSequenceIndex]]} alt="" draggable="false" />
+        <span className="about-opening-bird" />
       </div>
     </section>
   );
