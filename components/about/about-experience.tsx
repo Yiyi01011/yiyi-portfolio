@@ -13,13 +13,17 @@ const birdFrames = [
   `${ABOUT_PATH}/opening/bird-flock-02.png`,
   `${ABOUT_PATH}/opening/bird-flock-03.png`,
 ] as const;
-const birdSequence = [0, 1, 2, 1, 0] as const;
+const birdSequence = [0, 1, 2, 1] as const;
 
 function OpeningSection({ label }: { label: string }) {
   const [birdSequenceIndex, setBirdSequenceIndex] = useState(0);
 
   useEffect(() => {
     const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    birdFrames.forEach((src) => {
+      const image = new Image();
+      image.src = src;
+    });
     let timer: number | undefined;
 
     const syncBirdAnimation = () => {
@@ -29,8 +33,8 @@ function OpeningSection({ label }: { label: string }) {
         return;
       }
       timer = window.setInterval(() => {
-        setBirdSequenceIndex((index) => index === birdSequence.length - 1 ? 1 : index + 1);
-      }, 160);
+        setBirdSequenceIndex((index) => index === birdSequence.length - 1 ? 0 : index + 1);
+      }, 280);
     };
 
     syncBirdAnimation();

@@ -202,7 +202,7 @@ a { color: inherit; }
   left: 0;
   width: clamp(300px, 28vw, 440px);
   aspect-ratio: 1;
-  animation: about-birds-cross 20s linear infinite;
+  animation: about-birds-cross 24s linear infinite;
 }
 
 .about-opening-bird {
